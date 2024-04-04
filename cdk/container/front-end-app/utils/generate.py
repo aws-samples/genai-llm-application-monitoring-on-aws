@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
 from langchain_community.llms import Bedrock
 from langchain.prompts.prompt import PromptTemplate
 from traceloop.sdk.decorators import workflow, task

@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
 import streamlit as st
 from utils.generate import generate_cfn
 from utils.feedback import trace_feedback
