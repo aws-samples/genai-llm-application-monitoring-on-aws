@@ -37,18 +37,37 @@ To follow through this repository, you will need an <a href="https://console.aws
    1. <b>NOTE)</b> If this is your first time deploying this application, make sure you install all Node.js packages by running ```npm install``` below from the `cdk` folder
 
 ```
-cdk bootstrap
-cdk synth
+#Ensure you update all placeholder values in the commands below
 
-//ensure you update all placeholder values in the command below
+#Change directories to the **cdk** directory
+cd cdk
+
+Bootstrap your environment
+cdk bootstrap \
+-c domainPrefix=<Enter Custom Domain Prefix to be used for Amazon Cognito> \
+-c appCustomDomainName=<Enter Custom Domain Name to be used for Front-end application> \
+-c loadBalancerOriginCustomDomainName=<Enter Custom Domain Name to be used for Load Balancer Origin> \
+-c customDomainRoute53HostedZoneID=<Enter Route53 Hosted Zone ID for the Custom Domain being used> \
+-c customDomainRoute53HostedZoneName=<Enter Route53 Hosted Zone Name for the Custom Domain being used> \
+-c customDomainCertificateArn=<Enter ACM Certificate ARN for Custom Domains provided>
+
+#Synthesize your environment
+cdk synth \
+-c domainPrefix=<Enter Custom Domain Prefix to be used for Amazon Cognito> \
+-c appCustomDomainName=<Enter Custom Domain Name to be used for Front-end application> \
+-c loadBalancerOriginCustomDomainName=<Enter Custom Domain Name to be used for Load Balancer Origin> \
+-c customDomainRoute53HostedZoneID=<Enter Route53 Hosted Zone ID for the Custom Domain being used> \
+-c customDomainRoute53HostedZoneName=<Enter Route53 Hosted Zone Name for the Custom Domain being used> \
+-c customDomainCertificateArn=<Enter ACM Certificate ARN for Custom Domains provided>
+
+#Deploy your stack
 cdk deploy --all \
 --stack-name ObserveLLMStack \
--c appCustomDomainName=<Enter Custom Domain Name to be used for Frontend App> \
--c appCustomDomainName2=<Enter Custom Domain Name to be used for Frontend App of second app> \
+-c domainPrefix=<Enter Custom Domain Prefix to be used for Amazon Cognito> \
+-c appCustomDomainName=<Enter Custom Domain Name to be used for Front-end application> \
 -c loadBalancerOriginCustomDomainName=<Enter Custom Domain Name to be used for Load Balancer Origin> \
--c loadBalancerOriginCustomDomainName2=<Enter Custom Domain Name to be used for Load Balancer Origin of second app> \
 -c customDomainRoute53HostedZoneID=<Enter Route53 Hosted Zone ID for the Custom Domain being used> \
--c customDomainRoute53HostedZoneName=<Enter Route53 Hostedzone Name> \
+-c customDomainRoute53HostedZoneName=<Enter Route53 Hosted Zone Name for the Custom Domain being used> \
 -c customDomainCertificateArn=<Enter ACM Certificate ARN for Custom Domains provided>
 ```
 
@@ -76,7 +95,7 @@ cdk deploy --all \
 <img src="images/completed_analysis_screenshot.png">
 
 ## Cleaning up
-Be sure to remove the resources created in this repository to avoid charges. Run the following commands to delete these resources:
+Be sure to remove the resources created in this repository to avoid continued charges. Run the following commands to delete these resources:
 1. ```cdk destroy --all --stack-name ObserveLLMStack ```
 2. ```aws admin-delete-user --user-pool-id <REPLACE_WITH_POOL_ID> --username <REPLACE_WITH_USERNAME>```
 
