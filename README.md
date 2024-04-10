@@ -36,10 +36,10 @@ To follow through this repository, you will need an <a href="https://console.aws
 2. Run the AWS CDK commands below to deploy this application.
    1. <b>NOTE)</b> If this is your first time deploying this application, make sure you install all Node.js packages by running ```npm install``` below from the `cdk` folder
 
-```
+```bash
 #Ensure you update all placeholder values in the commands below
 
-#Change directories to the **cdk** directory
+#Change directories to the cdk directory
 cd cdk
 
 Bootstrap your environment
