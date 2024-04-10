@@ -42,7 +42,7 @@ To follow through this repository, you will need an <a href="https://console.aws
 #Change directories to the cdk directory
 cd cdk
 
-Bootstrap your environment
+#Bootstrap your environment
 cdk bootstrap \
 -c domainPrefix=<Enter Custom Domain Prefix to be used for Amazon Cognito> \
 -c appCustomDomainName=<Enter Custom Domain Name to be used for Front-end application> \
