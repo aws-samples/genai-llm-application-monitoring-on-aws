@@ -136,10 +136,3 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': 'complete'
     }
-
-# if __name__ == "__main__":
-
-#     event = {}
-
-#     e = lambda_handler(event, None)
-#     pprint(e)
