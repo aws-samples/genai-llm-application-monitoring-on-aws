@@ -113,22 +113,3 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps(output)
     }
-
-if __name__ == "__main__":
-
-    event = {
-        "Records": [
-            {
-                "s3": {
-                    "bucket": {"name": "observellmstack-documentsbucket9ec9deb9-tzuq9bfqdxlq"},
-                    # "object": {"key": "otel-traces/year=2024/month=02/day=23/hour=19/minute=53/traces_753821141.json"} # toxicity only
-                    "object": {"key": "otel-traces/year=2024/month=02/day=23/hour=19/minute=53/traces_958742978.json"} # llm only
-                    # "object": {"key": "otel-traces/year=2024/month=02/day=23/hour=22/minute=12/traces_970727801.json"} # user only
-                    # "object": {"key": "otel-traces/year%3D2024/month%3D02/day%3D27/hour%3D04/minute%3D39/traces_188301674.json"}
-                }
-            }
-        ]
-    }
-
-    e = lambda_handler(event, None)
-    pprint(e)
